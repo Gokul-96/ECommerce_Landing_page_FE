@@ -26,7 +26,7 @@ const Home = () => {
   };
 
 
-  
+
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
     filterProducts(searchTerm, e.target.value);
@@ -79,6 +79,7 @@ const Home = () => {
         <option value="Home Appliance">Home Appliance</option>
         <option value="Electronics">Electronics</option>
         <option value="Clothing">Clothing</option>
+        <option value="Kitchen Appliance">Kitchen Appliance</option>
         
       </select>
 
