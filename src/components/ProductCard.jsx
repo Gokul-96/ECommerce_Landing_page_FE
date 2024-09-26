@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Products should show in card wise
+//Products should show in card wise using productcard fn with destructured from props (Home component)
 const ProductCard = ({ product, onClick }) => {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer" onClick={onClick}>

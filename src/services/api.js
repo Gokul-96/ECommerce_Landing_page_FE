@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//axios fetch url from backend and see .env and you get it url
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const getProducts = async () => {

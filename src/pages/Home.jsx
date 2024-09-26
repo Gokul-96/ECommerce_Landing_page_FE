@@ -10,26 +10,29 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('All'); // Add category state
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  //This useEffect hook runs once when the component mounts. It calls fetchProducts() to load the product data
   useEffect(() => {
     fetchProducts();
   }, []);
 
+
+  //see api.js you can get it. Axios fetches product from api.
   const fetchProducts = async () => {
     const data = await getProducts();
-    setProducts(data);
+    setProducts(data); //store all product
     setFilteredProducts(data); // Initially display all products
   };
 
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-    filterProducts(e.target.value, selectedCategory);
+    setSearchTerm(e.target.value);  //update search 
+    filterProducts(e.target.value, selectedCategory);// Filter products based on search and category.
   };
 
 
 
   const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
-    filterProducts(searchTerm, e.target.value);
+    setSelectedCategory(e.target.value); //update selected category
+    filterProducts(searchTerm, e.target.value); //Filter product based on search term and new category
   };
 
   const filterProducts = (searchTerm, category) => {
@@ -52,6 +55,7 @@ const Home = () => {
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
+    //clicked product show in modal
   };
 
   const handleModalClose = () => {
@@ -88,14 +92,12 @@ const Home = () => {
 
       {/* Responsive Grid for Product Cards */}
 
-
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <ProductCard
             key={product._id}
-            product={product}
-            onClick={() => handleProductClick(product)}
+            product={product} //pass product data (e.g productCard component)
+            onClick={() => handleProductClick(product)} //click handle
           />
         ))}
       </div>
